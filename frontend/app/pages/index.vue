@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { projects } from '~/data/projects';
 </script>
 
 <template>
   <div class="home">
     <section class="container hero">
-      <div class="hero__copy">
+      <div>
         <h1 class="hero__heading">Software projects & experiments</h1>
         <p class="hero__text">
           A selection of full-stack web applications and fun projects built with the things I have learned in my career in software.
@@ -14,35 +15,15 @@
 
     <section class="container projects-grid">
       <ProjectCard
-        category="Portfolio"
-        status="MIT License"
-        title="LocalhostLarder"
-        description="A website to show off my software engineer skills, sausages making recipes, and a form to people to get in touch with me."
-        :tags="['Nuxt', 'Vite', 'Laravel', 'SQL']"
-        project-href="https://localhostlarder.com"
-        repo-href="https://github.com/HankRichter/LocalhostLarder"
-      >
-      </ProjectCard>
-
-      <ProjectCard
-        category="Wedding Page"
-        status="MIT License"
-        title="Hank & Jaime's Wedding Page"
-        description="A website for Hank and Jaime's wedding, featuring event details, RSVP forms, and photo galleries."
-        :tags="['Next.js', 'Vite', 'TailwindCSS']"
-        project-href="https://www.jaimeandhank2026.com"
-        repo-href="https://github.com/HankRichter/RichterWedding"
-      >
-      </ProjectCard>
-
-      <ProjectCard
-        category="Business Website"
-        status="MIT License"
-        title="RichterLLC"
-        description="A business and marketing website for RichterLLC to show off the transformative work they do in car restoration."
-        :tags="['Next.js', 'Vite', 'TailwindCSS']"
-        project-href="https://richter-llc.com"
-        repo-href="https://github.com/HankRichter/RichterLLC"
+        v-for="project in projects"
+        :key="project.id"
+        :category="project.category"
+        :status="project.status"
+        :title="project.title"
+        :description="project.description"
+        :tags="project.tags"
+        :project-href="project.projectHref"
+        :repo-href="project.repoHref"
       >
       </ProjectCard>
     </section>
@@ -50,7 +31,6 @@
     <section class="split">
       <div class="split__image" aria-hidden="true" />
       <div class="split__copy container">
-        <span class="pill">&#9670; SIDE PROJECT</span>
         <h2 class="split__heading">Both are just excuses to try something new.</h2>
         <p class="split__text">
           Making sausage from scratch is one of my favorite hobbies because it's an
@@ -116,81 +96,6 @@
   gap: var(--gutter);
   padding-block: var(--space-xl);
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-}
-
-.widget {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  border-radius: var(--radius);
-  padding: var(--space-sm);
-  background: var(--color-surface-tint);
-  margin: 0;
-}
-
-.widget__row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: var(--space-xs);
-}
-
-.widget--chart .widget__sparkline {
-  width: 100%;
-  height: 1.5rem;
-}
-
-.widget--chart .widget__sparkline polyline {
-  stroke: var(--color-primary);
-  stroke-width: 2;
-}
-
-.widget--progress .widget__bar {
-  height: 0.5rem;
-  border-radius: var(--radius-pill);
-  background: var(--color-border);
-  overflow: hidden;
-}
-
-.widget--progress .widget__bar span {
-  display: block;
-  height: 100%;
-  background: var(--color-secondary);
-}
-
-.widget--code {
-  color: var(--color-ink);
-  white-space: pre-wrap;
-}
-
-.widget--code .widget__highlight {
-  color: var(--color-primary);
-}
-
-.widget--terminal {
-  background: var(--color-ink-deep);
-  color: var(--color-bone);
-  white-space: pre-wrap;
-}
-
-.widget--pickup {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.widget--thermal {
-  display: flex;
-  gap: var(--space-md);
-}
-
-.widget--thermal div {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-}
-
-.widget--thermal strong {
-  color: var(--color-primary);
-  font-size: 1rem;
 }
 
 .split {

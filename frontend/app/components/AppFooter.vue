@@ -3,18 +3,15 @@ const route = useRoute();
 const currentYear = new Date().getFullYear();
 
 const footerLinks = [
-  { label: 'About', to: '/about' },
-  { label: 'Projects', to: '/projects' },
+  { label: 'Projects', to: '/' },
   { label: 'Sausages', to: '/sausages' },
-  { label: 'Contact', to: '/contact' },
 ];
 
 const tabLinks = [
-  { label: 'About', to: '/about', icon: 'lucide:user' },
-  { label: 'Projects', to: '/projects', icon: 'lucide:layout-grid' },
+  { label: 'Projects', to: '/', icon: 'lucide:layout-grid' },
   { label: 'Sausages', to: '/sausages', icon: 'lucide:chef-hat' },
-  { label: 'Contact', to: '/contact', icon: 'lucide:send' },
 ];
+
 </script>
 
 <template>
@@ -27,9 +24,9 @@ const tabLinks = [
     <div class="app-footer__social">
       <a href="https://github.com/HankRichter" target="_blank" rel="noopener">GitHub</a>
       <span>/</span>
-      <a href="hhttps://www.linkedin.com/in/edward-richter-291785152/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/edward-richter-291785152/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <small>&copy; {{ currentYear }} LocalHostLarder</small>
+    <small>&copy; {{ currentYear }} Two Dogs Sausage</small>
   </footer>
 
   <nav class="app-tabbar" aria-label="Primary">
@@ -38,7 +35,7 @@ const tabLinks = [
       :key="link.to"
       :to="link.to"
       class="app-tabbar__item"
-      :class="{ 'is-active': route.path.startsWith(link.to) }"
+      :class="{ 'is-active': link.to === '/' ? route.path === '/' : route.path.startsWith(link.to) }"
     >
       <Icon :name="link.icon" />
       <span>{{ link.label }}</span>

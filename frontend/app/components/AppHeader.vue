@@ -2,10 +2,8 @@
 const route = useRoute();
 
 const navLinks = [
-  { label: 'About', to: '/about' },
-  { label: 'Projects', to: '/projects' },
+  { label: 'Projects', to: '/' },
   { label: 'Sausages', to: '/sausages' },
-  { label: 'Contact', to: '/contact' },
 ];
 </script>
 
@@ -25,7 +23,7 @@ const navLinks = [
           v-for="link in navLinks"
           :key="link.to"
           :to="link.to"
-          :class="{ 'is-active': route.path.startsWith(link.to) }"
+          :class="{ 'is-active': link.to === '/' ? route.path === '/' : route.path.startsWith(link.to) }"
         >
           {{ link.label }}
         </NuxtLink>
