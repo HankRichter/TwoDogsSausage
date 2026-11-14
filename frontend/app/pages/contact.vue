@@ -73,6 +73,7 @@ const services = [
 
       <aside class="contact__side">
         <div class="contact__portrait">
+          <img src="/headshot.JPG" alt="Hank Richter" class="contact__portrait-img" />
           <span class="contact__portrait-name">Hank Richter</span>
           <span class="contact__portrait-role">Full-Stack Developer &amp; Sausage Maker, Detroit MI</span>
         </div>
@@ -239,9 +240,10 @@ const services = [
 }
 
 .contact__portrait {
+  position: relative;
   min-height: 14rem;
   border-radius: var(--radius);
-  background: linear-gradient(160deg, var(--color-ink) 0%, var(--color-primary-dark) 100%);
+  overflow: hidden;
   color: var(--color-bone);
   display: flex;
   flex-direction: column;
@@ -250,12 +252,33 @@ const services = [
   gap: var(--space-xs);
 }
 
+.contact__portrait-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.contact__portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(30, 35, 42, 0) 40%, var(--color-ink) 100%);
+  z-index: 1;
+}
+
 .contact__portrait-name {
+  position: relative;
+  z-index: 2;
   font-family: var(--font-display);
   font-size: 1.25rem;
 }
 
 .contact__portrait-role {
+  position: relative;
+  z-index: 2;
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   letter-spacing: 0.05em;

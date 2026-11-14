@@ -29,7 +29,9 @@ import { projects } from '~/data/projects';
     </section>
 
     <section class="split">
-      <div class="split__image" aria-hidden="true" />
+      <div class="split__image" aria-hidden="true">
+        <img src="/me.jpeg" alt="" class="split__image-photo" />
+      </div>
       <div class="split__copy container">
         <h2 class="split__heading">Both are just excuses to try something new.</h2>
         <p class="split__text">
@@ -106,6 +108,16 @@ import { projects } from '~/data/projects';
 
 .split__image {
   display: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.split__image-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .split__heading {

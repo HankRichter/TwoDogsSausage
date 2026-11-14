@@ -30,6 +30,7 @@ function toggleFaq(index: number) {
       <div class="sausages__grid">
         <article v-for="item in sausages" :key="item.id" class="sausage-card">
           <div class="sausage-card__media" aria-hidden="true">
+            <img :src="item.image" :alt="item.title" class="sausage-card__photo" />
             <span class="pill sausage-card__badge">{{ item.badge }}</span>
             <span class="sausage-card__price">{{ item.price }}</span>
           </div>
@@ -136,21 +137,45 @@ function toggleFaq(index: number) {
 .sausage-card__media {
   position: relative;
   height: 8rem;
-  background: linear-gradient(135deg, var(--color-surface-tint), var(--color-border));
+  overflow: hidden;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   padding: var(--space-sm);
 }
 
+.sausage-card__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.sausage-card__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 24, 29, 0.35), rgba(20, 24, 29, 0) 55%);
+  z-index: 1;
+}
+
 .sausage-card__badge {
+  position: relative;
+  z-index: 2;
   background: var(--color-surface);
 }
 
 .sausage-card__price {
+  position: relative;
+  z-index: 2;
   font-family: var(--font-mono);
   font-weight: 700;
   color: var(--color-primary);
+  background: var(--color-surface);
+  padding: 0.125rem var(--space-sm);
+  border-radius: var(--radius-pill);
 }
 
 .sausage-card__body {

@@ -5,6 +5,7 @@ export interface Sausage {
   price: string;
   description: string;
   ctaLabel: string;
+  image: string;
 }
 
 export const sausages: Sausage[] = [
@@ -15,6 +16,7 @@ export const sausages: Sausage[] = [
     price: '$15',
     description: 'Pork butt and belly, salt, fennel seeds (cracked), black pepper, paprika, garlic, red pepper flakes.',
     ctaLabel: 'Reserve a Pack',
+    image: '/italian_jalapeno.jpeg',
   },
   {
     id: 'jalapeno-popper-sausage',
@@ -23,6 +25,7 @@ export const sausages: Sausage[] = [
     price: '$16',
     description: 'Pork butt and belly, bacon(cooked), jalapenos, pepper jack cheese, cheddar cheese, salt, black pepper, mustard powder, paprika, cayenne pepper.',
     ctaLabel: 'Reserve a Pack',
+    image: '/italian_jalapeno.jpeg',
   },
   {
     id: 'maple-and-sage-sausage',
@@ -31,6 +34,7 @@ export const sausages: Sausage[] = [
     price: '$15',
     description: 'Chicken thighs, maple syrup, rubbed sage, salt, black pepper, garlic powder, onion powder, smoked paprika, cayenne pepper, cinnamon, vanilla extract.',
     ctaLabel: 'Reserve a Pack',
+    image: '/Maple_and_sage.jpeg',
   },
   {
     id: 'philly-cheesesteak-sausage',
@@ -39,6 +43,7 @@ export const sausages: Sausage[] = [
     price: '$20',
     description: 'Beef chuck and pork belly, cheddar cheese, american cheese, green and yellow bell peppers, yellow onion, salt, black pepper, garlic powder, onion powder, jalapeno.',
     ctaLabel: 'Reserve a Pack',
+    image: '/Philly_Cheese_Steak.jpeg',
   },
 ];
 
